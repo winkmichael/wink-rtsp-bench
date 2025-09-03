@@ -1,0 +1,50 @@
+# Binaries
+wink-rtsp-bench
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+
+# Dependency directories
+vendor/
+
+# Build directories
+dist/
+build/
+
+# IDE directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+/tmp/
+/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test output
+test-results/
+coverage/
+
+# Local configuration
+.env
+config.local.yaml
+
+# MediaMTX binary
+mediamtx
+mediamtx-*
