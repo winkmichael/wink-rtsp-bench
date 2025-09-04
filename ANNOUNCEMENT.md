@@ -6,7 +6,7 @@
   
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
   [![Go Version](https://img.shields.io/badge/Go-1.19%2B-00ADD8?logo=go)](https://golang.org)
-  [![Concurrent Connections](https://img.shields.io/badge/Tested-10%2C000%2B%20Concurrent-green)](https://github.com/winkstreaming/wink-rtsp-bench)
+  [![Concurrent Connections](https://img.shields.io/badge/Tested-10%2C000%2B%20Concurrent-green)](https://github.com/winkmichael/wink-rtsp-bench)
 </div>
 
 ---
@@ -75,12 +75,12 @@ We tested two well-known commercial RTSP servers (names withheld as we didn't en
 ### Quick Install
 ```bash
 # From source
-git clone https://github.com/winkstreaming/wink-rtsp-bench.git
+git clone https://github.com/winkmichael/wink-rtsp-bench.git
 cd wink-rtsp-bench
 go build -o wink-rtsp-bench ./cmd/wink-rtsp-bench
 
 # Or using go install
-go install github.com/winkstreaming/wink-rtsp-bench/cmd/wink-rtsp-bench@latest
+go install github.com/winkmichael/wink-rtsp-bench/cmd/wink-rtsp-bench@latest
 ```
 
 ### Basic Usage Examples
@@ -228,27 +228,27 @@ For 10,000 concurrent RTSP connections:
 The tool leverages Go's concurrency primitives for maximum efficiency:
 
 ```
-┌─────────────────────────────────────────┐
-│            Main Process                 │
-│                                         │
+┌────────────────────────────────────────┐
+│            Main Process                │
+│                                        │
 │  ┌─────────────┐    ┌─────────────┐    │
 │  │ Rate Limiter│───▶│  Spawner    │    │
 │  └─────────────┘    └──────┬──────┘    │
-│                            │            │
-│         Lightweight Goroutines          │
+│                            │           │
+│         Lightweight Goroutines         │
 │    ┌────────────────────────────┐      │
 │    ▼                            ▼      │
 │  ┌──────────────┐       ┌──────────────┐
 │  │ RTSP Client  │ ....  │ Bad Client   │
 │  │  (Goroutine) │       │  (Goroutine) │
 │  └──────┬───────┘       └──────┬───────┘
-│         │                      │        │
-│         ▼                      ▼        │
+│         │                      │       │
+│         ▼                      ▼       │
 │  ┌──────────────────────────────────┐  │
 │  │      RTP Sequence Tracker        │  │
 │  │    (Lock-free for performance)   │  │
 │  └──────────────────────────────────┘  │
-└─────────────────────────────────────────┘
+└────────────────────────────────────────┘
 ```
 
 ### Why Go Excels at This
