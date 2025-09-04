@@ -31,7 +31,7 @@ Go's goroutines make it uniquely qualified for massive load testing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/winkstreaming/wink-rtsp-bench.git
+git clone https://github.com/winkmichael/wink-rtsp-bench.git
 cd wink-rtsp-bench
 
 # Build
@@ -44,7 +44,7 @@ sudo cp wink-rtsp-bench /usr/local/bin/
 ### Using Go Install
 
 ```bash
-go install github.com/winkstreaming/wink-rtsp-bench/cmd/wink-rtsp-bench@latest
+go install github.com/winkmichael/wink-rtsp-bench/cmd/wink-rtsp-bench@latest
 ```
 
 ## Quick Start
@@ -86,7 +86,7 @@ wink-rtsp-bench \
 
 ```bash
 wink-rtsp-bench \
-  --url rtsp://stream.example.com:554/live \
+  --url rtsp://stream.wink.co:554/live \
   --readers 50000 \
   --duration 10m \
   --rate 2000/s \
@@ -100,7 +100,7 @@ The `--real-world` mode combined with `--hours 168` (one week) provides the most
 **3-Day Production Stress Test (3000-9000 concurrent users with 20% bad clients):**
 ```bash
 wink-rtsp-bench \
-  --url rtsp://production.server:554/live \
+  --url rtsp://production.wink.co:554/live \
   --real-world \
   --avg-connections 6000 \
   --variance 0.5 \
@@ -160,8 +160,8 @@ These tests truly put a server through its paces by:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║     WINK Streaming RTSP Benchmark Tool v1.0.0              ║
-║     Created by WINK Streaming (https://www.wink.co)         ║
+║     WINK Streaming RTSP Benchmark Tool v1.0.0                ║
+║     Created by WINK Streaming (https://www.wink.co)          ║
 ╚══════════════════════════════════════════════════════════════╝
 
 Configuration:
@@ -249,9 +249,9 @@ If you're serious about stress testing at scale, this guide is essential reading
 ┌─────────────────────────────────────────┐
 │            Main Process                 │
 │                                         │
-│  ┌─────────────┐    ┌─────────────┐    │
-│  │ Rate Limiter│───▶│  Spawner    │    │
-│  └─────────────┘    └──────┬──────┘    │
+│  ┌─────────────┐    ┌─────────────┐     │
+│  │ Rate Limiter│───▶│  Spawner    │     │
+│  └─────────────┘    └──────┬──────┘     │
 │                            │            │
 │         ┌──────────────────┴─────┐      │
 │         ▼                        ▼      │
@@ -261,15 +261,15 @@ If you're serious about stress testing at scale, this guide is essential reading
 │  └──────┬───────┘         └──────┬───────┘
 │         │                        │      │
 │         ▼                        ▼      │
-│  ┌──────────────────────────────────┐  │
-│  │      RTP Sequence Tracker        │  │
-│  │    (Packet Loss Detection)       │  │
-│  └──────────────┬───────────────────┘  │
+│  ┌──────────────────────────────────┐   │
+│  │      RTP Sequence Tracker        │   │
+│  │    (Packet Loss Detection)       │   │
+│  └──────────────┬───────────────────┘   │
 │                 │                       │
 │                 ▼                       │
-│  ┌──────────────────────────────────┐  │
-│  │      Statistics Aggregator       │  │
-│  └──────────────────────────────────┘  │
+│  ┌──────────────────────────────────┐   │
+│  │      Statistics Aggregator       │   │
+│  └──────────────────────────────────┘   │
 └─────────────────────────────────────────┘
 ```
 
@@ -295,7 +295,7 @@ If you're serious about stress testing at scale, this guide is essential reading
 ### Resource Usage
 
 | Connections | Memory | CPU Cores | Bandwidth @ 2 Mbps |
-|-------------|--------|-----------|---------------------|
+|-------------|--------|-----------|--------------------|
 | 1,000       | ~100MB | 1-2       | 2 Gbps             |
 | 10,000      | ~1GB   | 4-8       | 20 Gbps            |
 | 50,000      | ~5GB   | 8-16      | 100 Gbps           |
@@ -315,7 +315,7 @@ If you're serious about stress testing at scale, this guide is essential reading
 
 ```bash
 # Clone repository
-git clone https://github.com/winkstreaming/wink-rtsp-bench.git
+git clone https://github.com/winkmichael/wink-rtsp-bench.git
 cd wink-rtsp-bench
 
 # Get dependencies
@@ -391,7 +391,7 @@ Apache License 2.0. See LICENSE file for details.
 
 ## Support
 
-- GitHub Issues: [github.com/winkstreaming/wink-rtsp-bench/issues](https://github.com/winkstreaming/wink-rtsp-bench/issues)
+- GitHub Issues: [github.com/winkmichael/wink-rtsp-bench/issues](https://github.com/winkmichael/wink-rtsp-bench/issues)
 - Email: support@wink.co
 
 ## About WINK Streaming
